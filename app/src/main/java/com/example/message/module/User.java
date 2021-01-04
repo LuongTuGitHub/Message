@@ -111,4 +111,14 @@ public class User {
             signUp(user, password);
         }
     }
+
+    public void sendVerify(){
+        if(fUser!=null){
+            fUser.sendEmailVerification();
+        }
+    }
+
+    public void changePassword(String password,String newPassword){
+
+    }
 }

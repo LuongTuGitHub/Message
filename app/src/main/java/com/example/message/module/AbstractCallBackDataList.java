@@ -5,29 +5,7 @@ import androidx.annotation.NonNull;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
-public abstract class AdapterCallBackDataList {
-    public void add() {
-
-    }
-
-    public void change() {
-
-    }
-
-
-    public void remove() {
-
-    }
-
-
-    public void move() {
-
-    }
-
-
-    public void cancel() {
-
-    }
+public abstract class AbstractCallBackDataList implements CallBackDataList{
 
 
     public void add(@NonNull DataSnapshot snapshot) {
@@ -50,7 +28,5 @@ public abstract class AdapterCallBackDataList {
     }
 
 
-    public void cancel(@NonNull DatabaseError error) {
 
-    }
 }

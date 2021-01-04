@@ -6,15 +6,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
 public interface CallBackDataList {
-    void add();
-
-    void change();
-
-    void remove();
-
-    void move();
-
-    void cancel();
 
     void add(@NonNull DataSnapshot snapshot);
 
