@@ -31,38 +31,13 @@ public class User {
         fAuth.signInWithEmailAndPassword(user, password);
     }
 
-    public void login(@NonNull String user, @NonNull String password, @NonNull CallBackAuth callBackAuth) {
+    public void login(@NonNull String user, @NonNull String password, @NonNull CallBackAuth auth) {
 
-        if (callBackAuth != null) {
+        if (auth != null) {
             fAuth.signInWithEmailAndPassword(user, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        callBackAuth.isSuccess();
-                        callBackAuth.isSuccess(task);
-                    } else {
-                        callBackAuth.isFail(task);
-                        callBackAuth.isFail();
-                    }
-                }
-            });
-        } else {
-            login(user, password);
-        }
-    }
-
-    public void login(@NonNull String user, @NonNull String password, @NonNull AdapterCallBackAuth adapterCallBackAuth) {
-        if (adapterCallBackAuth != null) {
-            fAuth.signInWithEmailAndPassword(user, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        adapterCallBackAuth.isSuccess();
-                        adapterCallBackAuth.isSuccess(task);
-                    } else {
-                        adapterCallBackAuth.isFail();
-                        adapterCallBackAuth.isFail(task);
-                    }
+                    auth.function(task);
                 }
             });
         } else {
@@ -74,37 +49,12 @@ public class User {
         fAuth.createUserWithEmailAndPassword(user, password);
     }
 
-    public void signUp(String user, String password, @NonNull CallBackAuth callBackAuth) {
-        if (callBackAuth != null) {
+    public void signUp(String user, String password, @NonNull CallBackAuth auth) {
+        if (auth != null) {
             fAuth.createUserWithEmailAndPassword(user, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        callBackAuth.isSuccess();
-                        callBackAuth.isSuccess(task);
-                    } else {
-                        callBackAuth.isFail();
-                        callBackAuth.isFail(task);
-                    }
-                }
-            });
-        } else {
-            signUp(user, password);
-        }
-    }
-
-    public void signUp(String user, String password, @NonNull AdapterCallBackAuth adapterCallBackAuth) {
-        if (adapterCallBackAuth != null) {
-            fAuth.createUserWithEmailAndPassword(user, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        adapterCallBackAuth.isSuccess();
-                        adapterCallBackAuth.isSuccess(task);
-                    } else {
-                        adapterCallBackAuth.isFail();
-                        adapterCallBackAuth.isFail(task);
-                    }
+                    auth.function(task);
                 }
             });
         } else {

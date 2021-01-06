@@ -26,7 +26,7 @@ public class StartAppActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_app);
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(StartAppActivity.this, LoginActivity.class);
+            Intent intent = new Intent(StartAppActivity.this, HomeActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }, TIME_DELAY);
